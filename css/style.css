@@ -1,0 +1,751 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* input:invalid+label {
+    border-color: rgb(21, 75, 150);
+} */
+
+body {
+
+    font-family: 'PT Sans';
+    background-color: #e5e5e5;
+}
+
+.main-container {
+    max-width: 425px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background-color: #fff;
+    /* padding: 32px 18px; */
+}
+
+
+
+.header {
+    display: flex;
+    max-width: 425px;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    background: #E44256;
+    height: 62px;
+    padding: 0 18px;
+    margin-bottom: 32px;
+    border-radius: 6px;
+}
+
+
+
+
+.questions {
+    padding: 0 18px 32px 18px;
+}
+
+
+.question-name {
+    /* display: flex; */
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    color: #191919;
+    margin-bottom: 24px;
+    user-select: none;
+}
+
+.question-number {
+    display: block;
+    width: 18px;
+    margin-right: 10px;
+    height: 21px;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    text-align: center;
+    color: #fff;
+    user-select: none;
+}
+
+input[type=radio] {
+    display: none;
+}
+
+
+
+label {
+    user-select: none;
+}
+
+.first-question, .second-question, .third-question, .fourth-question {
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1.5px solid #E5E5E5;
+}
+
+.first-question label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #E44256;
+    border-radius: 6px;
+    height: 46px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: #E44256;
+    margin-bottom: 12px;
+    background-color: #fff;
+    text-align: center;
+    cursor: pointer;
+}
+
+.first-question input[type=radio]:checked+label,
+.second-question input[type=radio]:checked+label {
+    background-color: #E44256;
+    color: #fff;
+}
+
+
+
+
+
+label img {
+    display: block;
+    width: 36px;
+    height: 24px;
+    padding-left: 12px;
+    border-left: 1.5px solid #E5E5E5
+}
+
+
+
+.second-question label {
+    display: flex;
+    padding: 0 18px;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #E44256;
+    border-radius: 6px;
+    height: 46px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: #E44256;
+    margin-bottom: 12px;
+    background-color: #fff;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+#rs-range-line {
+    width: 100%;
+}
+
+
+input[type="checkbox"] {
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+
+
+#assortiment-label, #atmosphere-label, #kassir-label, #sotr-zala-label, #prices-label {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    border: 2px solid #E44256;
+    border-radius: 6px;
+    height: 46px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: #E44256;
+    background-color: #fff;
+    text-align: center;
+    cursor: pointer;
+    padding: 0 18px;
+    margin-bottom: 12px;
+}
+
+
+
+
+.hidden {
+    display: none;
+}
+
+
+
+#assortiment:checked+label, #atmosphere:checked+label, #kassir:checked+label, #sotr-zala:checked+label {
+    background-color: #E44256;
+    color: #fff;
+}
+
+
+#prices:checked+label {
+    background-color: #E44256;
+    color: #fff;
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+    padding: 14px 18px;
+    margin-bottom: 0;
+    border-bottom: 1px solid #fff;
+}
+
+
+
+
+.sub-prices {
+    background-color: #E44256;
+    color: #fff;
+    margin: 0;
+    padding: 24px 18px;
+    border-radius: 0 0 6px 6px;
+}
+
+
+
+
+
+
+
+
+
+#hi-prices-label, #bad-actions-label, #bad-cennik-label {
+    display: flex;
+    align-items: center;
+    min-height: 28px;
+    border: 1.5px solid #FFFFFF;
+    border-radius: 6px;
+    padding: 0 18px;
+    margin-bottom: 6px;
+    cursor: pointer;
+}
+
+#hi-prices, #bad-actions, #bad-cennik {
+    display: none;
+}
+
+#hi-prices:checked+label, #bad-actions:checked+label, #bad-cennik:checked+label {
+    background-color: #fff;
+    color: #E44256;
+    margin-bottom: 6px;
+}
+
+
+
+
+
+
+.sub-prices {
+    display: none;
+}
+
+#prices:checked~.sub-prices {
+    display: block;
+}
+
+
+
+
+#hi-prices:checked+label {
+    background-color: #fff;
+    margin-bottom: 0;
+    border-radius: 6px 6px 0 0;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+    color: #E44256;
+    min-height: 28px;
+    padding: 6px 12px 16px 12px;
+    border-bottom: 1px solid #E5E5E5;
+
+}
+
+
+.hi-prices-to {
+    background-color: #fff;
+    color: #E44256;
+    margin-bottom: 6px;
+    border-radius: 0 0 6px 6px;
+    padding: 12px 12px 16px 12px;
+
+}
+
+.hi-prices-to label {
+    display: inline-flex;
+    justify-content: center;
+    width: max-content;
+    align-items: center;
+    padding: 4px 6px;
+    border: 1.5px solid #E44256;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 4px 6px 4px 0;
+
+}
+
+.hi-prices-to input:checked+label {
+    background-color: #E44256;
+    color: #fff;
+}
+
+
+#hi-prices-books {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+
+
+
+.question-name-price {
+    color: #E44256;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+.hi-prices-to {
+    display: none;
+}
+
+#hi-prices:checked~.hi-prices-to {
+    display: block;
+}
+
+
+
+
+.hi-prices-to-books {
+    display: none;
+    color: #191919;
+    opacity: 0.5;
+
+}
+
+
+
+#hi-prices-books:checked~.hi-prices-to-books {
+    display: block;
+}
+
+
+.question-name-price-books {
+    color: #191919;
+    opacity: 0.5;
+}
+
+
+
+
+
+
+
+
+#send-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 46px;
+    background-color: #E44256;
+    border: 2px solid #E44256;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-bottom: 32px;
+    cursor: pointer;
+    font-family: 'Merriweather';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+
+#wt {
+    margin-bottom: 18px;
+}
+
+
+.end-page {
+    width: 300px;
+    height: 250px;
+    margin: 0 auto;
+    background-color: #fff;
+
+}
+
+
+
+
+/* /////////////////////////////////// */
+
+
+#atmosphere:checked+label,
+#kassir:checked+label,
+#sotr-zala:checked+label,
+#assortiment:checked+label {
+
+    border-radius: 6px 6px 0 0;
+    padding-bottom: 14px 18px 12px 18px;
+    margin-bottom: 0;
+    border-bottom: 1px solid #fff;
+
+}
+
+.atmo,
+.kassir,
+.sotrudnik-zal,
+.assortiment {
+    background-color: #E44256;
+    border-radius: 0 0 6px 6px;
+    margin-bottom: 12px;
+    padding: 18px;
+}
+
+.atmo input,
+.kassir input,
+.sotrudnik-zal input,
+.assortiment input {
+    display: block;
+    background-color: #E44256;
+    color: #FFFFFF;
+
+}
+
+
+.which-problem {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: #FFFFFF;
+    opacity: 0.7;
+    margin-bottom: 16px;
+
+}
+
+.main-answ {
+    padding: 0 18px;
+}
+
+
+
+
+#dark-label, #hot-label, #cold-label, #dirty-label,
+#slow-label, #ochered-label, #neprivetliv-label, #navyazchiv-label,
+#hard-to-find-label, #didnt-help-label, #neprivetliv-zala-label, #navyazchiv-zala-label,
+#assortiment-net-tovara-label, #assortiment-hard-find-label, #assortiment-no-choice-label, #assortiment-bad-quality-label {
+    display: block;
+    width: max-content;
+    border-radius: 6px;
+    background-color: #E44256;
+    margin-bottom: 6px;
+    padding: 6px 12px;
+    border: 1.5px solid #fff;
+    color: #fff;
+    cursor: pointer;
+}
+
+#dark:checked+label, #hot:checked+label, #cold:checked+label, #dirty:checked+label,
+#slow:checked+label, #ochered:checked+label, #neprivetliv:checked+label, #navyazchiv:checked+label,
+#hard-to-find:checked+label, #didnt-help:checked+label, #neprivetliv-zala:checked+label, #navyazchiv-zala:checked+label,
+#assortiment-net-tovara:checked+label, #assortiment-hard-find:checked+label, #assortiment-no-choice:checked+label, #assortiment-bad-quality:checked+label {
+    background-color: #fff;
+    color: #E44256;
+}
+
+
+
+.atmo,
+.kassir,
+.sotrudnik-zal,
+.assortiment,
+.quality,
+.assortiment-no-choice,
+.trudno-poisk,
+.net-tovara,
+#book1, #kanc2, #hobby3, #suvenir4, #food5, #another6 {
+    display: none;
+}
+
+#atmosphere:checked~.atmo,
+#kassir:checked~.kassir,
+#sotr-zala:checked~.sotrudnik-zal,
+#assortiment:checked~.assortiment,
+#assortiment-bad-quality:checked~.quality,
+#assortiment-no-choice:checked~.assortiment-no-choice,
+#assortiment-hard-find:checked~.trudno-poisk,
+#assortiment-net-tovara:checked~.net-tovara,
+#net-tovara-books:checked~#book1,
+#net-tovara-kanc:checked~#kanc2,
+#net-tovara-hobby:checked~#hobby3,
+#net-tovara-suvenir:checked~#suvenir4,
+#net-tovara-food:checked~#food5,
+#net-tovara-another:checked~#another6 {
+    display: block;
+}
+
+
+
+#assortiment:checked+label,
+#assortiment-no-choice:checked+label,
+#assortiment-hard-find:checked+label,
+#assortiment-net-tovara:checked+label {
+    width: 100%;
+    border-radius: 6px 6px 0 0;
+    margin-bottom: 0;
+}
+
+
+#quality-of {
+    width: 100%;
+    line-height: 18px;
+    color: #6a6a6a;
+    outline: none;
+    border: none;
+    background-color: #fff;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgb(167, 164, 164);
+    margin-bottom: 10px;
+}
+
+.quality,
+.assortiment-no-choice,
+.trudno-poisk,
+.net-tovara {
+    padding: 14px 12px;
+    background-color: #fff;
+    color: #E44256;
+    border-radius: 0 0 6px 6px;
+    margin-bottom: 6px;
+}
+
+
+#assortiment-bad-quality:checked+label,
+#assortiment-no-choice:checked+label {
+    background-color: #fff;
+    color: #E44256;
+    border-radius: 6px 6px 0 0;
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.which-problem-blue {
+    height: 16px;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    color: #E44256;
+    margin-bottom: 12px;
+}
+
+
+.assortiment-no-choice label,
+.trudno-poisk label,
+.net-tovara label {
+    display: block;
+    width: max-content;
+    border-radius: 6px;
+    background-color: #ffffff;
+    margin-bottom: 6px;
+    padding: 6px 12px;
+    border: 1.5px solid #E44256;
+    color: #E44256;
+    cursor: pointer;
+}
+
+#no-choice-books:checked+label, #no-choice-kanc:checked+label, #no-choice-hobby:checked+label, #no-choice-suvenir:checked+label, #no-choice-food:checked+label, #no-choice-another:checked+label,
+#trudno-poisk-books:checked+label, #trudno-poisk-kanc:checked+label, #trudno-poisk-hobby:checked+label, #trudno-poisk-suvenir:checked+label, #trudno-poisk-food:checked+label, #trudno-poisk-another:checked+label,
+#net-tovara-books:checked+label, #net-tovara-kanc:checked+label, #net-tovara-hobby:checked+label, net-tovara-suvenir:checked+label, #net-tovara-food:checked+label, #net-tovara-another:checked+label {
+    color: #fff;
+    background-color: #E44256;
+}
+
+
+.adding-text {
+    width: 100%;
+    line-height: 18px;
+    color: #6a6a6a !important;
+    outline: none;
+    border: none;
+    background-color: #fff !important;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgb(167, 164, 164);
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.sub-answer {
+    color: #4a4848 !important;
+}
+
+
+
+
+
+input[type=range] {
+    height: 24px;
+    -webkit-appearance: none;
+    width: 100%;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 1px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #50555C;
+    background: #50555C;
+    border-radius: 1px;
+    border: 0px solid #000000;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    box-shadow: 0px 0px 0px #000000;
+    border: 2px solid #DBDBDB;
+    height: 20px;
+    width: 40px;
+    border-radius: 10px;
+    background: #E44256;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -10px;
+}
+
+
+/* input[type=range]::-webkit-slider-thumb::before {
+    content: '1';
+    width: 20px;
+    height: 20px;
+    background-color: red;
+} */
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #50555C;
+}
+
+/* 
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 14px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #50555C;
+    background: #50555C;
+    border-radius: 14px;
+    border: 0px solid #000000;
+}
+
+input[type=range]::-moz-range-thumb {
+    box-shadow: 0px 0px 0px #000000;
+    border: 0px solid #000000;
+    height: 20px;
+    width: 40px;
+    border-radius: 12px;
+    background: #529DE1;
+    cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+    width: 100%;
+    height: 14px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: #50555C;
+    border: 0px solid #000000;
+    border-radius: 28px;
+    box-shadow: 1px 1px 1px #50555C;
+}
+
+input[type=range]::-ms-fill-upper {
+    background: #50555C;
+    border: 0px solid #000000;
+    border-radius: 28px;
+    box-shadow: 1px 1px 1px #50555C;
+}
+
+input[type=range]::-ms-thumb {
+    margin-top: 1px;
+    box-shadow: 0px 0px 0px #000000;
+    border: 0px solid #000000;
+    height: 20px;
+    width: 40px;
+    border-radius: 12px;
+    background: #529DE1;
+    cursor: pointer;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+    background: #50555C;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+    background: #50555C;
+} */
+
+.error {
+    border: 1px solid red;
+}
+
+.bukvoed {
+    color: #E44256;
+}
+
+
+* {
+    font-family: 'Merriweather';
+}
+
+
+
+.question-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+
+.question-number {
+    height: 36px;
+    width: 24px;
+}
+
+
+.question-names {
+    margin: auto 0;
+}
