@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/range.css">
     <script src="./js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
     <title>Буквоед</title>
 </head>
 
@@ -73,8 +75,11 @@
 
 
 
-                    <input id="rs-range-line" class="rs-range" type="range" value="0" min="0" max="10" step="1"
+                    <!-- <input id="rs-range-line" class="rs-range" type="range" value="0" min="0" max="10" step="1"
                         onchange="checkRange(event)" list="tickmarks">
+
+
+
 
 
 
@@ -90,7 +95,55 @@
                         <option value="8"></option>
                         <option value="9"></option>
                         <option value="10"></option>
-                    </datalist>
+                    </datalist> -->
+
+
+
+
+
+
+                    <div class="range-container">
+                        <div class="range-wrap" id="range-wrapp-1">
+                            <div class="points-box" id="points-box"></div>
+                            <!-- Ticks (lines) over slider -->
+                            <div class="ticks" id="tickContainer">
+                            </div>
+                            <!-- Range value inside of range thumb -->
+                            <div class="range-value" id="rangeValue"></div>
+                            <!-- Range itself -->
+                            <input id="exponentialslider" class="input-el required-range" name="exponentialslider"
+                                type="range" min="0" max="10" value="0.1" step="0.1" data-name="q-t-a-1" data-reqired=""
+                                onchange="checkRange(event)">
+                        </div>
+                        <div class="marking-wrapper">
+                            <span class="marking-number">0</span>
+                            <span class="long-line m-line"></span>
+                            <span class="short-line m-line"></span>
+                            <span class="long-line m-line"></span>
+                            <span class="short-line m-line"></span>
+                            <span class="marking-number">|</span>
+                            <span class="short-line m-line"></span>
+                            <span class="long-line m-line"></span>
+                            <span class="short-line m-line"></span>
+                            <span class="long-line m-line"></span>
+                            <span class="marking-number">10</span>
+                        </div>
+                        <br>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 </div>
 
 
@@ -392,7 +445,7 @@
         </form>
 
     </div>
-
+    <script src="./js/range.js?v=2.11"></script>
 </body>
 
 </html>
