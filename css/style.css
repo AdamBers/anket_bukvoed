@@ -737,6 +737,18 @@ input[type=range]:focus::-ms-fill-upper {
     display: flex;
     align-items: center;
     margin-bottom: 32px;
+
+    font-family: 'Merriweather';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    /* or 138% */
+
+
+    /* Colors/Black */
+
+    color: #000000;
 }
 
 
@@ -748,4 +760,8 @@ input[type=range]:focus::-ms-fill-upper {
 
 .question-names {
     margin: auto 0;
+}
+
+.bukvoed {
+    color: #E44256;
 }
