@@ -1,92 +1,40 @@
-/** Radio validation */
-let form = document.getElementById('main-form');
-$('.send-button').on('click', function (e) {
-    e.preventDefault();
-    let el = document.querySelectorAll('[data-reqired]');
-    let erroreArrayElemnts = [];
+let form = document.getElementById("main-form")
+let q_1 = document.getElementById("first-time")
+let q_2 = document.getElementById("not-first-time")
+let q_3 = document.getElementById("q-2-yes")
+let q_4 = document.getElementById("q-2-yesno")
+let q_5 = document.getElementById("q-2-no")
+let errorMessage1 = document.querySelector('.error1')
+let errorMessage2 = document.querySelector('.error2')
 
-    for (let i = 0; i < el.length; i++) {
-        if (el[i].tagName === 'INPUT') {
-            /*let typeAttr = el[i].getAttribute('data-reqired');
-            if(typeAttr === 'radio'){
-                let name = el[i].getAttribute('data-name');
-                let allItemRadio = $('[data-name=' + name + ']');
-                $('[data-name=' + name + ']').each(function(){
-                    //console.log($(this).val())
-                    let checkAttrRadio = 0
-                    if($(this).prop('checked')){
-                        checkAttrRadio = 1
-                    }
-                    if(checkAttrRadio == 1){
-                        $(this).parents('.scale-container').find('.error').fadeOut();
-                        $(this).removeAttr('data-reqired', '');
-                    } else {
-                        $(el[i]).parents('.scale-container').find('.error').fadeIn();
-                    }
-                })
-            } else {*/
-            let name = el[i].getAttribute('data-name');
-            if (document.querySelectorAll('[data-name=' + name + ']:checked').length === 0) {
-                erroreArrayElemnts.push(el[i]);
-                $(el[i]).on('click', function () {
-                    $(this).parents('.range-container').find('.error').fadeOut();
-                    $(this).removeAttr('data-reqired', '');
-                })
-                $(el[i]).parents('.range-container').find('.error').fadeIn();
-            }
-            /*}*/
-        }
-        let typeAttr = el[i].getAttribute('data-reqired');
-        if (typeAttr === 'radio') {
-            let name = el[i].getAttribute('data-name');
-            let allItemRadio = $('[data-name=' + name + ']');
-            let checkAttrRadio = 0
-            $('[data-name=' + name + ']').each(function () {
-                //console.log($(this).val())
-                if ($(this).prop('checked')) {
-                    checkAttrRadio = 1
-                }
-            })
-            if (checkAttrRadio == 1) {
-                $('[data-name=' + name + ']').each(function () {
-                    $(this).removeAttr('data-reqired', '');
-                })
-            } else {
-                $(el[i]).parents('.scale-container').find('.error').fadeIn();
-            }
-            $('[data-name=' + name + ']').on('click', function () {
-                $('[data-name=' + name + ']').parents('div').find('.error-' + name).fadeOut();
-                $('[data-name=' + name + ']').each(function () {
-                    $(this).removeAttr('data-reqired', '');
-                })
-            })
-        }
-        if (el[i].tagName === 'TEXTAREA') {
-            let name = el[i].getAttribute('data-name');
-            let areaBlock = $.trim($('[data-name=' + name + ']').val())
-            if (areaBlock.length < 5) {
-                erroreArrayElemnts.push(el[i]);
-                $('[data-name=' + name + ']').parents('div').find('.error-' + name).fadeIn();
-                $('[data-name=' + name + ']').parents('div').find('.error-' + name).css('display', 'block');
-            }
-            $('[data-name=' + name + ']').on('click', function () {
-                $('[data-name=' + name + ']').parents('div').find('.error-' + name).fadeOut();
-            })
-        }
+
+
+
+form.onsubmit = function (e) {
+    // q2 VALIDATE
+
+    if (!q_3.checked && !q_4.checked && !q_5.checked) {
+        e.preventDefault()
+        errorMessage2.style.display = 'block'
+        window.scrollTo({
+            top: 300,
+            left: 0,
+            behavior: 'smooth'
+        });
     }
-    if (erroreArrayElemnts.length > 0) {
-        let scrollEl = erroreArrayElemnts[0];
-        $('html, body').animate({
-            scrollTop: $(scrollEl).parents('div').offset().top - 200
-        }, 1000);
+
+    // q1 VALIDATE
+    if (q_1.checked === false && q_2.checked === false) {
+        e.preventDefault()
+        errorMessage1.style.display = 'block'
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
     }
 
 
-    // let required = document.getElementById(main-form).querySelectorAll("[required]")
-
-    // required.forEach(function(input) {
-    //     console.log(input)
-    // })
 
 
 
@@ -94,13 +42,4 @@ $('.send-button').on('click', function (e) {
 
 
 
-
-
-
-    if (erroreArrayElemnts.length == 0 || notClient == 1) {
-        form.submit();
-    }
-});
-
-
-
+}

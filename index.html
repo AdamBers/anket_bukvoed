@@ -14,7 +14,7 @@
 
 <body>
     <div class="main-container">
-        <form action="./end.html" id="main-form" onsubmit="validateForm()">
+        <form action="./end.html" id="main-form">
             <div class="header">
                 <img class="logo" src="./img/logo.svg" alt="logo">
                 <img class="close-icon" src="./img/closeX.svg" alt="logo">
@@ -26,15 +26,13 @@
                         <div class="question-number"><img src="./img/num-1.svg" alt="logo"></div>
                         <p class="question-names">Вы первый раз в магазине?</p>
                     </div>
-                    <input id="first-time" type="radio" value="first-time" name="first-question" required
-                        data-name="q-t-a-2" data-reqired="">
+                    <input id="first-time" type="radio" value="first-time" name="first-question">
                     <label for="first-time" id="first-time-label">Первый раз</label>
 
-                    <input id="not-first-time" type="radio" value="not-first-time" name="first-question"
-                        data-name="q-t-a-2" data-reqired="">
+                    <input id="not-first-time" type="radio" value="not-first-time" name="first-question">
                     <label for="not-first-time">Нет</label>
                     <br>
-                    <p class="range-error. error.">Пожалуйста, выберите один из вариантов ответа</p>
+                    <p class="error1">*Пожалуйста, выберите один из вариантов ответа*</p>
                 </div>
 
 
@@ -47,25 +45,27 @@
 
 
 
-                    <input id="q-2-yes" type="radio" value="yes" name="second-question" required>
+                    <input id="q-2-yes" type="radio" value="yes" name="second-question">
                     <label for="q-2-yes">
                         Да
                         <img class="yes" src="./img/yes.svg" alt="yes_smile_image">
                     </label>
 
 
-                    <input id="q-2-yesno" type="radio" value="yes-no" name="second-question" required>
+                    <input id="q-2-yesno" type="radio" value="yes-no" name="second-question">
                     <label for="q-2-yesno">
                         Нейтрально
                         <img class="yes-no" src="./img/yesNo.svg" alt="neutral_image">
                     </label>
 
 
-                    <input id="q-2-no" type="radio" value="no" name="second-question" required>
+                    <input id="q-2-no" type="radio" value="no" name="second-question">
                     <label for="q-2-no">
                         Нет
                         <img class="no" src="./img/no.svg" alt="no_image">
                     </label>
+                    <br>
+                    <p class="error2">*Пожалуйста, выберите один из вариантов ответа</p>
 
                 </div>
 

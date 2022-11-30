@@ -785,8 +785,10 @@ input:invalid+label {
     border-color: green
 } */
 
-.error {
-    color: #00e600;
+.error1, .error2 {
+    color: #13d4ca;
     font-size: 14px;
+    border: none;
+    /* text-align: center; */
     display: none;
 }
