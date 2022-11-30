@@ -7,31 +7,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/range.css">
-    <script src="./js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+    <script src="./js/script.js"></script>
     <title>Буквоед</title>
 </head>
 
 <body>
     <div class="main-container">
-        <form action="./end.html" id="main-form">
+        <form action="./end.html" id="main-form" onsubmit="validateForm()">
             <div class="header">
                 <img class="logo" src="./img/logo.svg" alt="logo">
                 <img class="close-icon" src="./img/closeX.svg" alt="logo">
             </div>
-            <div class="questions">
+            <div class="questions" data="Выберите один из вариантов">
                 <div class="first-question">
 
                     <div class="question-title">
                         <div class="question-number"><img src="./img/num-1.svg" alt="logo"></div>
                         <p class="question-names">Вы первый раз в магазине?</p>
                     </div>
-                    <input id="first-time" type="radio" value="first-time" name="first-question" required>
-                    <label for="first-time">Первый раз</label>
+                    <input id="first-time" type="radio" value="first-time" name="first-question" required
+                        data-name="q-t-a-2" data-reqired="">
+                    <label for="first-time" id="first-time-label">Первый раз</label>
 
-                    <input id="not-first-time" type="radio" value="not-first-time" name="first-question" required>
+                    <input id="not-first-time" type="radio" value="not-first-time" name="first-question"
+                        data-name="q-t-a-2" data-reqired="">
                     <label for="not-first-time">Нет</label>
+                    <br>
+                    <p class="range-error. error.">Пожалуйста, выберите один из вариантов ответа</p>
                 </div>
+
+
 
                 <div class="second-question">
                     <div class="question-title">
@@ -73,16 +79,8 @@
                             порекомендуете <span class="bukvoed">Буквоед</span> друзьям и родственникам?</p>
                     </div>
 
-
-
                     <!-- <input id="rs-range-line" class="rs-range" type="range" value="0" min="0" max="10" step="1"
                         onchange="checkRange(event)" list="tickmarks">
-
-
-
-
-
-
                     <datalist id="tickmarks">
                         <option value="0"></option>
                         <option value="1"></option>
@@ -96,11 +94,6 @@
                         <option value="9"></option>
                         <option value="10"></option>
                     </datalist> -->
-
-
-
-
-
 
                     <div class="range-container">
                         <div class="range-wrap" id="range-wrapp-1">
@@ -130,51 +123,21 @@
                         </div>
                         <br>
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                 <div class="fourth-question hidden" id="fourth-question">
                     <p class="question-name">Что не понравилось?</p>
 
 
-
-
-
-
-                    <input id="assortiment" type="checkbox" value="assortiment" name="fourth-question">
+                    <input id="assortiment" type="radio" value="assortiment" name="fourth-question">
                     <label for="assortiment" id="assortiment-label" class="main-answ">Ассортимент</label>
 
 
                     <div class="assortiment hidden">
                         <p class="which-problem">Что Вам не понравилось в ассортименте?</p>
 
-                        <input id="assortiment-net-tovara" type="checkbox" value="assortiment-net-tovara"
+                        <input id="assortiment-net-tovara" type="radio" value="assortiment-net-tovara"
                             name="assortiment">
                         <label for="assortiment-net-tovara" id="assortiment-net-tovara-label">Нет нужного товара</label>
 
@@ -183,7 +146,7 @@
                         <div class="net-tovara hidden">
                             <p class="which-problem-blue">Что именно вы не смогли найти?</p>
 
-                            <input id="net-tovara-books" type="checkbox" value="net-tovara-books" name="net-tovara">
+                            <input id="net-tovara-books" type="radio" value="net-tovara-books" name="net-tovara">
                             <label for="net-tovara-books" id="net-tovara-books-label">Книги</label>
                             <div id="book1">
                                 <p class="sub-answer">Какую именно книгу вы не смогли найти?</p>
@@ -191,7 +154,7 @@
                             </div>
 
 
-                            <input id="net-tovara-kanc" type="checkbox" value="net-tovara-kanc" name="net-tovara">
+                            <input id="net-tovara-kanc" type="radio" value="net-tovara-kanc" name="net-tovara">
                             <label for="net-tovara-kanc" id="net-tovara-kanc-label">Канцтовары</label>
                             <div id="kanc2">
                                 <p class="sub-answer">Что именно из канцтоваров вы не смогли найти?</p>
@@ -199,14 +162,14 @@
                             </div>
 
 
-                            <input id="net-tovara-hobby" type="checkbox" value="net-tovara-hobby" name="net-tovara">
+                            <input id="net-tovara-hobby" type="radio" value="net-tovara-hobby" name="net-tovara">
                             <label for="net-tovara-hobby" id="net-tovara-hobby-label">Хобби/Игры/Игрушки</label>
                             <div id="hobby3">
                                 <p class="sub-answer">Что именно из категории Хобби/Игры/Игрушки вы не смогли найти?</p>
                                 <input type="text" name="hobby3" class="adding-text" placeholder="Введите название...">
                             </div>
 
-                            <input id="net-tovara-suvenir" type="checkbox" value="net-tovara-suvenir" name="net-tovara">
+                            <input id="net-tovara-suvenir" type="radio" value="net-tovara-suvenir" name="net-tovara">
                             <label for="net-tovara-suvenir" id="net-tovara-suvenir-label">Сувениры</label>
                             <div id="suvenir4">
                                 <p class="sub-answer">Что именно из сувениров вы не смогли найти?</p>
@@ -214,14 +177,14 @@
                                     placeholder="Введите название...">
                             </div>
 
-                            <input id="net-tovara-food" type="checkbox" value="net-tovara-food" name="net-tovara">
+                            <input id="net-tovara-food" type="radio" value="net-tovara-food" name="net-tovara">
                             <label for="net-tovara-food" id="net-tovara-food-label">Еда и напитки</label>
                             <div id="food5">
                                 <p class="sub-answer">Что именно из еды и напитков вы не смогли найти?</p>
                                 <input type="text" name="food5" class="adding-text" placeholder="Введите название...">
                             </div>
 
-                            <input id="net-tovara-another" type="checkbox" value="net-tovara-another" name="net-tovara">
+                            <input id="net-tovara-another" type="radio" value="net-tovara-another" name="net-tovara">
                             <label for="net-tovara-another" id="net-tovara-another-label">Другое</label>
 
                             <input type="text" name="another-6" id="another6" class="adding-text"
@@ -230,8 +193,7 @@
                         </div>
 
 
-                        <input id="assortiment-hard-find" type="checkbox" value="assortiment-hard-find"
-                            name="assortiment">
+                        <input id="assortiment-hard-find" type="radio" value="assortiment-hard-find" name="assortiment">
                         <label for="assortiment-hard-find" id="assortiment-hard-find-label">Трудности с поиском
                             товара</label>
 
@@ -239,62 +201,59 @@
                         <div class="trudno-poisk">
                             <p class="which-problem-blue">Какой именно товар вы не смогли найти?</p>
 
-                            <input id="trudno-poisk-books" type="checkbox" value="trudno-poisk-books"
+                            <input id="trudno-poisk-books" type="radio" value="trudno-poisk-books"
                                 name="assortiment-trudno-poisk">
                             <label for="trudno-poisk-books" id="trudno-poisk-books-label">Книги</label>
 
-                            <input id="trudno-poisk-kanc" type="checkbox" value="trudno-poisk-kanc"
+                            <input id="trudno-poisk-kanc" type="radio" value="trudno-poisk-kanc"
                                 name="assortiment-trudno-poisk">
                             <label for="trudno-poisk-kanc" id="trudno-poisk-kanc-label">Канцтовары</label>
 
-                            <input id="trudno-poisk-hobby" type="checkbox" value="trudno-poisk-hobby"
+                            <input id="trudno-poisk-hobby" type="radio" value="trudno-poisk-hobby"
                                 name="assortiment-trudno-poisk">
                             <label for="trudno-poisk-hobby" id="trudno-poisk-hobby-label">Хобби/Игры/Игрушки</label>
 
-                            <input id="trudno-poisk-suvenir" type="checkbox" value="trudno-poisk-suvenir"
+                            <input id="trudno-poisk-suvenir" type="radio" value="trudno-poisk-suvenir"
                                 name="assortiment-trudno-poisk">
                             <label for="trudno-poisk-suvenir" id="trudno-poisk-suvenir-label">Сувениры</label>
 
-                            <input id="trudno-poisk-food" type="checkbox" value="trudno-poisk-food"
+                            <input id="trudno-poisk-food" type="radio" value="trudno-poisk-food"
                                 name="assortiment-trudno-poisk">
                             <label for="trudno-poisk-food" id="trudno-poisk-food-label">Еда и напитки</label>
 
-                            <input id="trudno-poisk-another" type="checkbox" value="trudno-poisk-another"
+                            <input id="trudno-poisk-another" type="radio" value="trudno-poisk-another"
                                 name="assortiment-trudno-poisk">
                             <label for="trudno-poisk-another" id="trudno-poisk-another-label">Другое</label>
                         </div>
 
 
 
-                        <input id="assortiment-no-choice" type="checkbox" value="assortiment-no-choice"
-                            name="assortiment">
+                        <input id="assortiment-no-choice" type="radio" value="assortiment-no-choice" name="assortiment">
                         <label for="assortiment-no-choice" id="assortiment-no-choice-label">Недостаточный выбор
                             товара</label>
 
                         <div class="assortiment-no-choice hidden">
                             <p class="which-problem-blue">Ассортимент каких товаров необходимо расширить?</p>
 
-                            <input id="no-choice-books" type="checkbox" value="no-choice-books"
+                            <input id="no-choice-books" type="radio" value="no-choice-books"
                                 name="assortiment-no-choice">
                             <label for="no-choice-books" id="no-choice-books-label">Книги</label>
 
-                            <input id="no-choice-kanc" type="checkbox" value="no-choice-kanc"
-                                name="assortiment-no-choice">
+                            <input id="no-choice-kanc" type="radio" value="no-choice-kanc" name="assortiment-no-choice">
                             <label for="no-choice-kanc" id="no-choice-kanc-label">Канцтовары</label>
 
-                            <input id="no-choice-hobby" type="checkbox" value="no-choice-hobby"
+                            <input id="no-choice-hobby" type="radio" value="no-choice-hobby"
                                 name="assortiment-no-choice">
                             <label for="no-choice-hobby" id="no-choice-hobby-label">Хобби/Игры/Игрушки</label>
 
-                            <input id="no-choice-suvenir" type="checkbox" value="no-choice-suvenir"
+                            <input id="no-choice-suvenir" type="radio" value="no-choice-suvenir"
                                 name="assortiment-no-choice">
                             <label for="no-choice-suvenir" id="no-choice-suvenir-label">Сувениры</label>
 
-                            <input id="no-choice-food" type="checkbox" value="no-choice-food"
-                                name="assortiment-no-choice">
+                            <input id="no-choice-food" type="radio" value="no-choice-food" name="assortiment-no-choice">
                             <label for="no-choice-food" id="no-choice-food-label">Еда и напитки</label>
 
-                            <input id="no-choice-another" type="checkbox" value="no-choice-another"
+                            <input id="no-choice-another" type="radio" value="no-choice-another"
                                 name="assortiment-no-choice">
                             <label for="no-choice-another" id="no-choice-another-label">Другое</label>
                         </div>
@@ -302,7 +261,7 @@
 
 
 
-                        <input id="assortiment-bad-quality" type="checkbox" value="assortiment-bad-quality"
+                        <input id="assortiment-bad-quality" type="radio" value="assortiment-bad-quality"
                             name="assortiment">
                         <label for="assortiment-bad-quality" id="assortiment-bad-quality-label">Не устраивает качество
                             товара</label>
@@ -316,99 +275,99 @@
 
 
 
-                    <input id="atmosphere" type="checkbox" value="atmosphere" name="fourth-question">
+                    <input id="atmosphere" type="radio" value="atmosphere" name="fourth-question">
                     <label for="atmosphere" id="atmosphere-label" class="main-answ">Атмосфера</label>
 
                     <div class="atmo hidden">
                         <p class="which-problem">На что нам следует обратить внимание в атмосфере магазина?</p>
 
-                        <input id="dark" type="checkbox" value="dark" name="atmo">
+                        <input id="dark" type="radio" value="dark" name="atmo">
                         <label for="dark" id="dark-label">Темный зал</label>
 
-                        <input id="hot" type="checkbox" value="hot" name="atmo">
+                        <input id="hot" type="radio" value="hot" name="atmo">
                         <label for="hot" id="hot-label">В помещении жарко/душно</label>
 
-                        <input id="cold" type="checkbox" value="cold" name="atmo">
+                        <input id="cold" type="radio" value="cold" name="atmo">
                         <label for="cold" id="cold-label">В помещении холодно</label>
 
-                        <input id="dirty" type="checkbox" value="dirty" name="atmo">
+                        <input id="dirty" type="radio" value="dirty" name="atmo">
                         <label for="dirty" id="dirty-label">Грязно</label>
                     </div>
 
 
 
-                    <input id="kassir" type="checkbox" value="kassir" name="fourth-question">
+                    <input id="kassir" type="radio" value="kassir" name="fourth-question">
                     <label for="kassir" id="kassir-label">Работа кассира</label>
 
                     <div class="kassir">
                         <p class="which-problem">На что нам следует обратить внимание в работе кассира?</p>
 
-                        <input id="slow" type="checkbox" value="slow" name="kassir">
+                        <input id="slow" type="radio" value="slow" name="kassir">
                         <label for="slow" id="slow-label">Медленная работа сотрудника</label>
 
-                        <input id="ochered" type="checkbox" value="ochered" name="kassir">
+                        <input id="ochered" type="radio" value="ochered" name="kassir">
                         <label for="ochered" id="ochered-label">Большая очередь/Время ожидания</label>
 
-                        <input id="neprivetliv" type="checkbox" value="neprivetliv" name="kassir">
+                        <input id="neprivetliv" type="radio" value="neprivetliv" name="kassir">
                         <label for="neprivetliv" id="neprivetliv-label">Сотрудник неприветлив</label>
 
-                        <input id="navyazchiv" type="checkbox" value="navyazchiv" name="kassir">
+                        <input id="navyazchiv" type="radio" value="navyazchiv" name="kassir">
                         <label for="navyazchiv" id="navyazchiv-label">Навязчивое обслуживание</label>
                     </div>
 
 
 
-                    <input id="sotr-zala" type="checkbox" value="sotr-zala" name="fourth-question">
+                    <input id="sotr-zala" type="radio" value="sotr-zala" name="fourth-question">
                     <label for="sotr-zala" id="sotr-zala-label">Работа сотрудника зала</label>
 
 
                     <div class="sotrudnik-zal hidden">
                         <p class="which-problem">На что нам следует обратить внимание в работе сотрудника зала?</p>
 
-                        <input id="hard-to-find" type="checkbox" value="hard-to-find" name="sotrudnik-zala">
+                        <input id="hard-to-find" type="radio" value="hard-to-find" name="sotrudnik-zala">
                         <label for="hard-to-find" id="hard-to-find-label">Сложно найти сотрудника</label>
 
-                        <input id="didnt-help" type="checkbox" value="didnt-help" name="sotrudnik-zala">
+                        <input id="didnt-help" type="radio" value="didnt-help" name="sotrudnik-zala">
                         <label for="didnt-help" id="didnt-help-label">Не оказана помощь в выборе товара</label>
 
-                        <input id="neprivetliv-zala" type="checkbox" value="neprivetliv-zala" name="sotrudnik-zala">
+                        <input id="neprivetliv-zala" type="radio" value="neprivetliv-zala" name="sotrudnik-zala">
                         <label for="neprivetliv-zala" id="neprivetliv-zala-label">Сотрудник неприветлив</label>
 
-                        <input id="navyazchiv-zala" type="checkbox" value="navyazchiv-zala" name="sotrudnik-zala">
+                        <input id="navyazchiv-zala" type="radio" value="navyazchiv-zala" name="sotrudnik-zala">
                         <label for="navyazchiv-zala" id="navyazchiv-zala-label">Навязчивое обслуживание</label>
                     </div>
 
 
 
-                    <input id="prices" type="checkbox" value="prices" name="fourth-question">
+                    <input id="prices" type="radio" value="prices" name="fourth-question">
                     <label for="prices" id="prices-label"> Цены </label>
 
                     <div class="sub-prices hidden">
                         <p class="which-problem">Что Вам не понравилось в ценах?</p>
                         <div class="sub-high-prices">
-                            <input id="hi-prices" type="checkbox" value="hi-prices" name="prices">
+                            <input id="hi-prices" type="radio" value="hi-prices" name="prices">
                             <label for="hi-prices" id="hi-prices-label">
                                 Высокие цены
                             </label>
 
                             <div class="hi-prices-to hidden">
                                 <p class="question-name-price">На что именно высокие цены?</p>
-                                <input id="hi-prices-books" type="checkbox" value="hi-prices-books" name="hi-prices-to">
+                                <input id="hi-prices-books" type="radio" value="hi-prices-books" name="hi-prices-to">
                                 <label for="hi-prices-books" id="hi-prices-books-label">Книги</label>
 
-                                <input id="hi-prices-kanc" type="checkbox" value="hi-prices" name="hi-prices-to">
+                                <input id="hi-prices-kanc" type="radio" value="hi-prices" name="hi-prices-to">
                                 <label for="hi-prices-kanc" id="hi-prices-kanc-label">Канцтовары</label>
 
-                                <input id="hi-prices-hobby" type="checkbox" value="hi-prices" name="hi-prices-to">
+                                <input id="hi-prices-hobby" type="radio" value="hi-prices" name="hi-prices-to">
                                 <label for="hi-prices-hobby" id="hi-prices-hobby-label">Хобби/Игры/Игрушки</label>
 
-                                <input id="hi-prices-suvenir" type="checkbox" value="hi-prices" name="hi-prices-to">
+                                <input id="hi-prices-suvenir" type="radio" value="hi-prices" name="hi-prices-to">
                                 <label for="hi-prices-suvenir" id="hi-prices-suvenir-label">Сувениры</label>
 
-                                <input id="hi-prices-food" type="checkbox" value="hi-prices" name="hi-prices-to">
+                                <input id="hi-prices-food" type="radio" value="hi-prices" name="hi-prices-to">
                                 <label for="hi-prices-food" id="hi-prices-food-label">Еда и напитки</label>
 
-                                <input id="hi-prices-another" type="checkbox" value="hi-prices" name="hi-prices-to">
+                                <input id="hi-prices-another" type="radio" value="hi-prices" name="hi-prices-to">
                                 <label for="hi-prices-another" id="hi-prices-another-label">Другое</label>
 
 
@@ -416,14 +375,14 @@
                                 <div class="hi-prices-to-books hidden">
                                     <p class="question-name-price-books">На какие именно книги высокие цены?</p>
 
-                                    <input id="books-hud" type="checkbox" value="books-hud" name="hi-prices-to-books">
+                                    <input id="books-hud" type="radio" value="books-hud" name="hi-prices-to-books">
                                     <label for="books-hud" id="hi-prices-suvenir-label">Художественная
                                         литература</label>
 
-                                    <input id="books-kids" type="checkbox" value="books-kids" name="hi-prices-to-books">
+                                    <input id="books-kids" type="radio" value="books-kids" name="hi-prices-to-books">
                                     <label for="books-kids" id="hi-prices-food-label">Детская литература</label>
 
-                                    <input id="books-education" type="checkbox" value="books-education"
+                                    <input id="books-education" type="radio" value="books-education"
                                         name="hi-prices-to-books">
                                     <label for="books-education" id="hi-prices-another-label">Учебная и прикладная
                                         литература</label>
@@ -431,20 +390,21 @@
                                 </div>
                             </div>
                         </div>
-                        <input id="bad-actions" type="checkbox" value="bad-actions" name="prices">
+                        <input id="bad-actions" type="radio" value="bad-actions" name="prices">
                         <label for="bad-actions" id="bad-actions-label">
                             Неактуальные акции
                         </label>
-                        <input id="bad-cennik" type="checkbox" value="bad-cennik" name="prices">
+                        <input id="bad-cennik" type="radio" value="bad-cennik" name="prices">
                         <label for="bad-cennik" id="bad-cennik-label">
                             Цена на кассе не соответствует ценнику
                         </label>
                     </div>
                 </div>
-                <input type="submit" value="Отправить" id="send-button">
+                <input type="submit" value="Отправить" id="send-button" class="send-button">
         </form>
 
     </div>
+    <script src="./js/validation.js?v=1.1"></script>
     <script src="./js/range.js?v=2.11"></script>
 </body>
 

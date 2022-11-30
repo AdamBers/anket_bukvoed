@@ -74,7 +74,10 @@ body {
 
 input[type=radio] {
     display: none;
+    width: 0;
+    height: 0;
 }
+
 
 
 
@@ -764,4 +767,26 @@ input[type=range]:focus::-ms-fill-upper {
 
 .bukvoed {
     color: #E44256;
+}
+
+/* input+label {
+    border: 2px solid #42e46d;
+}
+
+input:invalid+label {
+    border: 2px solid #E44256;
+} */
+/* 
+.questions[data] input {
+    border-color: #191919;
+} */
+
+/* input[type="radio"]:invalid+label {
+    border-color: green
+} */
+
+.error {
+    color: #00e600;
+    font-size: 14px;
+    display: none;
 }
